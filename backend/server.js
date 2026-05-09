@@ -18,7 +18,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://mnhs-elibrary.vercel.app'], 
+        origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://mnhs-elibrary-6r7o.vercel.app'], 
         methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
         credentials: true
     }
