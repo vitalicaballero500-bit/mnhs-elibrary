@@ -10,8 +10,8 @@ const generateToken = (id) => {
 // This instructs the browser to securely lock the token away so hackers cannot steal it via XSS.
 const cookieOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV !== 'development', // Uses secure HTTPS in production (Render)
-    sameSite: 'strict', // Protects against Cross-Site Request Forgery (CSRF)
+    secure: true, // <-- MUST BE TRUE FOR CROSS-DOMAIN
+    sameSite: 'none', // <-- THE FIX: Allows Vercel (Frontend) to talk to Render (Backend)
     maxAge: 30 * 24 * 60 * 60 * 1000 // 30 Days
 };
 

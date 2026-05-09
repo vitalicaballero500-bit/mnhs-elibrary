@@ -70,15 +70,14 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.warn(`🚨 Blocked Origin: ${origin}`); 
-            callback(new Error('CORS security policy blocked this request.'));
-        }
-    },
-    credentials: true 
+    origin: [
+        'http://localhost:5173', 
+        'http://127.0.0.1:5173',
+        'https://mnhs-elibrary-6r7o.vercel.app',
+        'https://mnhs-elibrary-6r7o-ns5taxiad-ruszkin-s-projects.vercel.app',
+        process.env.CLIENT_URL 
+    ],
+    credentials: true // <-- THIS IS THE MAGIC KEY
 }));
 
 app.use(express.json());
